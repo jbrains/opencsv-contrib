@@ -1,9 +1,24 @@
 plugins {
     id 'java-library'
+    id 'maven-publish'
 }
 
 repositories {
     mavenCentral()
+}
+
+group = 'ca.jbrains.opencsv-contrib'
+version = '0.0.1'
+
+publishing {
+    publications {
+        library(MavenPublication) {
+            from components.java
+        }
+    }
+    repositories {
+        mavenLocal()
+    }
 }
 
 dependencies {
