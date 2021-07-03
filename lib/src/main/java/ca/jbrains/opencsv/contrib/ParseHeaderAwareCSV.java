@@ -26,11 +26,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
 
-public class ParseHeaderAwareCSVIntoRecords<RowType> {
+public class ParseHeaderAwareCSV<RowType> {
     private final Function<Map<String, String>, RowType> parseRow;
 
     // REFACTOR Handle parse errors with a row parser that returns Either<ParseError, RowType>?
-    public ParseHeaderAwareCSVIntoRecords(final Function<Map<String, String>, RowType> parseRow) {
+    public ParseHeaderAwareCSV(final Function<Map<String, String>, RowType> parseRow) {
         this.parseRow = parseRow;
     }
 

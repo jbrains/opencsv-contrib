@@ -16,14 +16,13 @@
 
 package ca.jbrains.learn.opencsv;
 
-import ca.jbrains.opencsv.contrib.ParseHeaderAwareCSVIntoRecords;
+import ca.jbrains.opencsv.contrib.ParseHeaderAwareCSV;
 import io.vavr.collection.List;
 import io.vavr.collection.Traversable;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.io.StringReader;
-import java.util.Map;
 import java.util.stream.Collectors;
 
 public class ParseCsvWithOpenCsvToRecords {
@@ -32,8 +31,8 @@ public class ParseCsvWithOpenCsvToRecords {
 
     @Test
     void singleRowAndSingleColumn() throws Exception {
-        final ParseHeaderAwareCSVIntoRecords<IHaveAStringRecord> csvParser =
-                new ParseHeaderAwareCSVIntoRecords<>(
+        final ParseHeaderAwareCSV<IHaveAStringRecord> csvParser =
+                new ParseHeaderAwareCSV<>(
                         rowAsMap -> new IHaveAStringRecord(rowAsMap.get("text")));
 
         final List<IHaveAStringRecord> parsedRows =
