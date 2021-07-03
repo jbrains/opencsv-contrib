@@ -1,6 +1,6 @@
 # opencsv-contrib
 
-I started using [opencsv](http://opencsv.sourceforge.net/) in a project. I created a tiny local extension. I thought it might be nice to publish it as a public project. I don't know at what point you might find this helpful. Please feel invited to contribute issues and pull requests, in order to increase the chances that someone will find this useful.
+I started using [opencsv](http://opencsv.sourceforge.net/) in a project. I created a tiny [local extension](https://refactoring.com/catalog/introduceLocalExtension.html). I thought it might be nice to publish it as a public project. I don't know at what point you might find this helpful. Please feel invited to contribute issues and pull requests, in order to increase the chances that someone will find this useful.
 
 ## Records
 
