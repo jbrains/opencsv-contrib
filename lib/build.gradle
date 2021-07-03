@@ -28,6 +28,9 @@ publishing {
 }
 
 dependencies {
+    implementation 'io.vavr:vavr:1.0.0-alpha-3'
+    implementation 'com.opencsv:opencsv:5.4'
+
     testImplementation 'org.junit.jupiter:junit-jupiter:5.7.2'
 }
 
