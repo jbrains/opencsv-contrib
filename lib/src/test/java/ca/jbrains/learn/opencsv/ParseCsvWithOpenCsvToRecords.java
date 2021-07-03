@@ -32,19 +32,21 @@ public class ParseCsvWithOpenCsvToRecords {
 
     @Test
     void singleRowAndSingleColumn() throws Exception {
-        final ParseHeaderAwareCSVIntoRecords<IHaveAStringRecord> csvParser = new ParseHeaderAwareCSVIntoRecords<>(ParseCsvWithOpenCsvToRecords::parseRow);
-        final java.util.List<IHaveAStringRecord> rowsCollector = csvParser.parse(new StringReader(unlines(List.of("text", "jbrains"))));
+        final ParseHeaderAwareCSVIntoRecords<IHaveAStringRecord> csvParser =
+                new ParseHeaderAwareCSVIntoRecords<>(
+                        rowAsMap -> new IHaveAStringRecord(rowAsMap.get("text")));
+
+        final List<IHaveAStringRecord> parsedRows =
+                List.ofAll(
+                        csvParser.parse(
+                                new StringReader(unlines(List.of("text", "jbrains")))));
 
         Assertions.assertEquals(
                 List.of(new IHaveAStringRecord("jbrains")),
-                List.ofAll(rowsCollector));
+                parsedRows);
     }
 
     private static String unlines(final Traversable<String> lines) {
         return lines.collect(Collectors.joining(System.lineSeparator()));
-    }
-
-    private static IHaveAStringRecord parseRow(final Map<String, String> rowAsMap) {
-        return new IHaveAStringRecord(rowAsMap.get("text"));
     }
 }
